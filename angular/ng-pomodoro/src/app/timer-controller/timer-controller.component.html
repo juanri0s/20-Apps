@@ -1,1 +1,5 @@
-<p>timer-controller works!</p>
+<div class="controller-container">
+  <button id="pause" (click)="updateStatus('PAUSE')">Pause</button>
+  <button id="play" (click)="updateStatus('START')">Play</button>
+  <button id="reset" (click)="updateStatus('RESET')">Reset</button>
+</div>

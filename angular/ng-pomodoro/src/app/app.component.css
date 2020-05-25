@@ -1,0 +1,15 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.controllers-container {
+  justify-content: space-evenly;
+}
+
+h1 {
+  text-align: center;
+}

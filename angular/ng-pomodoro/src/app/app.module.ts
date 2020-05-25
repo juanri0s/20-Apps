@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TaskNameComponent } from './task-name/task-name.component';
 import { TimerComponent } from './timer/timer.component';
 import { TimerControllerComponent } from './timer-controller/timer-controller.component';
+import { TimerControllerService } from './timer-controller/timer-controller.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { TimerControllerComponent } from './timer-controller/timer-controller.co
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [TimerControllerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
