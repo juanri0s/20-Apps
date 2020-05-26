@@ -3,4 +3,3 @@
 Features
 - Play rock-paper-scissors against computer
 - Win/Lose popup
-- SVG icons
