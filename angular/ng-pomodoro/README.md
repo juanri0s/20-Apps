@@ -1,4 +1,4 @@
-#ng-pomodoro
+# ng-pomodoro
 
 Features:
 - give the task a name
