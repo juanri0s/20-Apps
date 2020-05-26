@@ -7,13 +7,15 @@ import { TaskNameComponent } from './task-name/task-name.component';
 import { TimerComponent } from './timer/timer.component';
 import { TimerControllerComponent } from './timer-controller/timer-controller.component';
 import { TimerControllerService } from './timer-controller/timer-controller.service';
+import { TimerPipe } from './timer.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskNameComponent,
     TimerComponent,
-    TimerControllerComponent
+    TimerControllerComponent,
+    TimerPipe
   ],
   imports: [
     BrowserModule,

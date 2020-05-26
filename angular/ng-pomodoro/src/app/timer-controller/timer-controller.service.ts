@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { Status } from '../timer.model';
 
 @Injectable({
@@ -7,10 +7,28 @@ import { Status } from '../timer.model';
 })
 export class TimerControllerService {
 
-  private timerStatus = new BehaviorSubject('');
-  timerStatus$ = this.timerStatus.asObservable();
+  private start = new Subject<void>();
+  start$ = this.start.asObservable();
+
+  private pause = new Subject<void>();
+  pause$ = this.pause.asObservable();
+
+  private reset = new Subject<void>();
+  reset$ = this.reset.asObservable();
 
   updateStatus(status: Status) {
-    this.timerStatus.next(status);
+    switch(status) {
+      case Status.PLAY:
+        this.start.next();
+        break;
+      case Status.PAUSE:
+        this.pause.next();
+        break;
+      case Status.RESET:
+        this.reset.next();
+        break;
+      default:
+        break;
+    }
   }
 }
