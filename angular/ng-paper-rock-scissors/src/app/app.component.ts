@@ -24,13 +24,19 @@ export class AppComponent {
 
   chooseWinner() {
     const computerSelection = this.randomPick();
-    if (WinnerMap[this.selection] === computerSelection) {
-      this.status = Status.WIN;
-      this.winLossTracker.winsX++;
+    if (computerSelection !== this.selection) {
+      if (WinnerMap[computerSelection] === this.selection) {
+        this.status = Status.WIN;
+        this.winLossTracker.wins++;
+      } else {
+        this.status = Status.LOSE;
+        this.winLossTracker.losses++;
+      }
     } else {
-      this.status = Status.LOSE;
-      this.winLossTracker.winsY++;
+      this.status = Status.TIE;
+      return;
     }
+
 
     this.updateTrackerInStorage(this.winLossTracker);
   }
@@ -47,17 +53,16 @@ export class AppComponent {
 
   getTrackerFromStorage() {
     const item = JSON.parse(localStorage.getItem('tracker'));
-    console.log('got', item)
     let tracker: GameTracker;
     if (item) {
       tracker = {
-        winsX: item.winsX,
-        winsY: item.winsY
+        wins: item.wins,
+        losses: item.losses
       }
     } else {
       tracker = {
-        winsX: 0,
-        winsY: 0
+        wins: 0,
+        losses: 0
       }
     }
 

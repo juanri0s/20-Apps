@@ -2,11 +2,11 @@
 
 <div class="wins-losses-tracker">
   <div class="wins">
-    <h1> {{ winLossTracker?.winsX }} Wins </h1>
+    <h1> {{ winLossTracker?.wins }} Wins </h1>
 
   </div>
   <div class="losses">
-    <h1> {{ winLossTracker?.winsY }} Wins </h1>
+    <h1> {{ winLossTracker?.losses }} Losses </h1>
 
   </div>
 </div>
@@ -30,9 +30,10 @@
   </div>
 </section>
 
-<div class="win-lose-container" >
+<div class="win-loss-container" >
   <h1 *ngIf="status === 'LOSE'"> You Lost :( </h1>
-  <h1 *ngIf="status === 'WIN'"> You Won ! </h1>
+  <h1 *ngIf="status === 'WIN'"> You Won !! </h1>
+  <h1 *ngIf="status === 'TIE'"> It was a Tie ! </h1>
 </div>
 
 

@@ -6,12 +6,13 @@ export enum GameOption {
 
 export enum Status {
   WIN = 'WIN',
-  LOSE = 'LOSE'
+  LOSE = 'LOSE',
+  TIE = 'TIE'
 }
 
 export class GameTracker {
-  winsX: number;
-  winsY: number;
+  wins: number;
+  losses: number;
 }
 
 export const WinnerMap = {
