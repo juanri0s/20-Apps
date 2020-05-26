@@ -1,5 +1,4 @@
 <h1 class="title"> Rock 👊. Paper 🧻. Scissor ✂️ </h1>
-<h4 class="message" *ngIf="status === 'IDLE'"> Waiting for choice... </h4>
 
 <div class="wins-losses-tracker">
   <div class="wins">
@@ -12,13 +11,28 @@
   </div>
 </div>
 
-<section class="game">
-  game
+<section class="game-container">
+  <div class="game">
+    <div class="selection-item" (click)="setSelection('ROCK')">
+      <h1 class="rock">👊</h1>
+      Rock
+    </div>
+
+    <div class="selection-item" (click)="setSelection('PAPER')">
+      <h1 class="paper">🧻</h1>
+      Paper
+    </div>
+
+    <div class="selection-item" (click)="setSelection('SCISSOR')">
+      <h1 class="scissor">✂️</h1>
+      Scissor
+    </div>
+  </div>
 </section>
 
 <div class="win-lose-container" >
   <h1 *ngIf="status === 'LOSE'"> You Lost :( </h1>
-  <h1 *ngIf="status === 'WON'"> You Won ! </h1>
+  <h1 *ngIf="status === 'WIN'"> You Won ! </h1>
 </div>
 
 

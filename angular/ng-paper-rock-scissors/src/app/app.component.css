@@ -1,6 +1,26 @@
+.game-container {
+  height: 60%;
+}
+
 .game {
-  height: 80%;
-  background-color: purple;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.selection-item {
+  cursor: pointer;
+}
+
+.rock, .paper, .scissor {
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  to {
+    transform: rotateY(180deg);
+  }
 }
 
 .title, .message {

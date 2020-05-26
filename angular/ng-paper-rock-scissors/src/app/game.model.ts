@@ -5,8 +5,7 @@ export enum GameOption {
 }
 
 export enum Status {
-  IDLE = 'IDLE',
-  WON = 'WON',
+  WIN = 'WIN',
   LOSE = 'LOSE'
 }
 

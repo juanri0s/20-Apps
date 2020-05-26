@@ -8,7 +8,7 @@ import { GameOption, Status, WinnerMap, GameTracker } from './game.model';
 })
 export class AppComponent {
   title = 'ng-paper-rock-scissors';
-  status: Status = Status.IDLE;
+  status: Status;
   selection: GameOption;
 
   winLossTracker: GameTracker;
@@ -17,22 +17,21 @@ export class AppComponent {
     this.winLossTracker = this.getTrackerFromStorage();
   }
 
-  test() {
-    this.selection = GameOption.ROCK;
+  setSelection(selection: GameOption) {
+    this.selection = selection;
     this.chooseWinner();
   }
 
   chooseWinner() {
     const computerSelection = this.randomPick();
     if (WinnerMap[this.selection] === computerSelection) {
-      this.status = Status.WON;
+      this.status = Status.WIN;
       this.winLossTracker.winsX++;
     } else {
       this.status = Status.LOSE;
       this.winLossTracker.winsY++;
     }
 
-    this.status = Status.IDLE;
     this.updateTrackerInStorage(this.winLossTracker);
   }
 

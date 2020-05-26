@@ -1,7 +1,8 @@
 # ng-paper-rock-scissors
 
 Features
-- Play rock-paper-scissors against computer
-- Win/Loss popup
-- Win/Loss Tracker
-- Tracker persists refreshes
+- play rock-paper-scissors against computer
+- win/loss popup
+- win/loss Tracker
+- css animated emoji selections
+- tracker persists refreshes
