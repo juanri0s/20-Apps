@@ -1,0 +1,26 @@
+section, .full-height {
+  height: 100%;
+}
+
+.title {
+  text-align: center;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.editor {
+  width: 48%;
+  border: 1px dotted blue;
+  padding: 10px;
+}
+
+.display {
+  width: 48%;
+  padding: 10px;
+  margin: 0!important;
+  border: 1px dotted black;
+}
