@@ -1,7 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
-import { EventEmitter } from 'events';
-import { BehaviorSubject } from 'rxjs';
+import { Component } from '@angular/core';
 import { TimerControllerService } from './timer-controller.service';
+import { Status } from '../timer.model';
 
 @Component({
   selector: 'app-timer-controller',
@@ -11,9 +10,11 @@ import { TimerControllerService } from './timer-controller.service';
 })
 export class TimerControllerComponent {
   constructor(private timeController: TimerControllerService) { }
+  play = Status.PLAY;
+  pause = Status.PAUSE;
+  reset = Status.RESET;
 
-  updateStatus(status: 'PAUSE' | 'START' | 'RESET'){
-    console.log()
+  updateStatus(status: Status) {
     this.timeController.updateStatus(status)
   }
 }
