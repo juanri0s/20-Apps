@@ -8,7 +8,9 @@ export const DEFAULT_TIME = 1800;
 
 @Component({
   selector: 'app-timer',
-  templateUrl: './timer.component.html',
+  template: `
+    <h3 class="timer"> {{ timer$ | async | timer }}</h3>
+  `,
   styleUrls: ['./timer.component.css'],
 })
 export class TimerComponent implements OnInit {

@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-task-name',
-  templateUrl: './task-name.component.html',
+  template: `
+    <label for="task-name">Task Name:</label>
+    <input id="task-name" type="text" autocomplete="none">
+  `,
   styleUrls: ['./task-name.component.css']
 })
-export class TaskNameComponent implements OnInit {
+export class TaskNameComponent {
 
   taskName: string = '';
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

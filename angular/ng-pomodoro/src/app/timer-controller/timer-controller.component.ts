@@ -4,9 +4,14 @@ import { Status } from '../timer.model';
 
 @Component({
   selector: 'app-timer-controller',
-  templateUrl: './timer-controller.component.html',
+  template: `
+    <div class="controller-container">
+      <button id="pause" (click)="updateStatus(pause)">Pause</button>
+      <button id="play" (click)="updateStatus(play)">Play</button>
+      <button id="reset" (click)="updateStatus(reset)">Reset</button>
+    </div>
+  `,
   styleUrls: ['./timer-controller.component.css'],
-  providers: []
 })
 export class TimerControllerComponent {
   constructor(private timeController: TimerControllerService) { }
