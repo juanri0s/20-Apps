@@ -1,7 +1,15 @@
 .active {
-  background-color: #ccc;
+  background-color: #8510d8;
+}
+
+a {
+  color: white;
 }
 
 .route {
-  padding: 10px;
+  border-radius: 6px;
+  padding-right: 100px;
+  padding-left: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }

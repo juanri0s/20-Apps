@@ -7,8 +7,8 @@ import { Route } from '../app.component';
   template: `
     <a
       class="route"
-      [routerLink]="route?.path"
       routerLinkActive="active"
+      [routerLink]="route?.path"
       #rla="routerLinkActive">
       {{ route?.label }}
     </a>
