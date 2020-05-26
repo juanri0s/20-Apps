@@ -1,0 +1,14 @@
+.tab {
+  display: flex;
+  background-color: #f1f1f1;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.tab:not(:first-child) {
+  margin-left: 20px;
+}
+
+.title {
+  text-align: center;
+}
