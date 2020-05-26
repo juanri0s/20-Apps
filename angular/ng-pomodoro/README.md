@@ -2,5 +2,5 @@
 
 Features:
 - give the task a name
-- start, stop, reset
-- timer
+- start, pause, reset
+- countdown timer on a 30 min interval
