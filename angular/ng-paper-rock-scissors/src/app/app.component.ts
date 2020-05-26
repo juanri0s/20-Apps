@@ -37,7 +37,6 @@ export class AppComponent {
       return;
     }
 
-
     this.updateTrackerInStorage(this.winLossTracker);
   }
 
