@@ -2,4 +2,6 @@
 
 Features
 - Play rock-paper-scissors against computer
-- Win/Lose popup
+- Win/Loss popup
+- Win/Loss Tracker
+- Tracker persists refreshes

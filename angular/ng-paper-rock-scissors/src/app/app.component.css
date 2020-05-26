@@ -12,6 +12,15 @@
   text-align: center;
 }
 
+.wins-losses-tracker {
+  display: flex;
+  justify-content: space-around;
+}
+
+.wins, .losses {
+  display: inline-block;
+}
+
 h1 {
   border: none;
 }

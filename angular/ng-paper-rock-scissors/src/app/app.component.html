@@ -1,19 +1,20 @@
-<h1 class="title"> Rock 👊, Paper 🧻, Scissor ✂️ </h1>
+<h1 class="title"> Rock 👊. Paper 🧻. Scissor ✂️ </h1>
 <h4 class="message" *ngIf="status === 'IDLE'"> Waiting for choice... </h4>
 
-<div class="game">
-  <section class="row">
-    <div class="side-1">
-      Side 1
-    </div>
+<div class="wins-losses-tracker">
+  <div class="wins">
+    <h1> {{ winLossTracker?.winsX }} Wins </h1>
 
-    <div class="side-2">
-      Side 2
-    </div>
-  </section>
+  </div>
+  <div class="losses">
+    <h1> {{ winLossTracker?.winsY }} Wins </h1>
 
-  <button (click)="test()">  test </button>
+  </div>
 </div>
+
+<section class="game">
+  game
+</section>
 
 <div class="win-lose-container" >
   <h1 *ngIf="status === 'LOSE'"> You Lost :( </h1>
