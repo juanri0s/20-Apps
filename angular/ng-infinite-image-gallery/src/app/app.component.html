@@ -1,0 +1,8 @@
+<app-search></app-search>
+<section class="grid">
+  <app-image class="image" *ngFor="let image of images$, trackBy: trackByFn()"
+    [url]="image?.urls?.small"
+  >
+  </app-image>
+</section>
+
