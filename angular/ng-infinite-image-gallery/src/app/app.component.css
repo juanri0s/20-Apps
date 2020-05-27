@@ -5,6 +5,10 @@
   grid-gap: 2rem;
 }
 
+h1 {
+  border-bottom: none;
+}
+
 /* .image {
   border: 1px solid red;
 } */

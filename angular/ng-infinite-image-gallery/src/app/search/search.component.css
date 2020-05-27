@@ -1,0 +1,9 @@
+.search-input[type="search"] {
+  background-color: #FFF;
+  color: black;
+  height: 50px;
+}
+
+.search-container {
+  margin-bottom: 30px;
+}

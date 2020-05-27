@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UnsplashService } from './unsplash.service';
-import { Observable } from 'rxjs';
+import { Status } from './load.model';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   title = 'ng-infinite-image-gallery';
   page: number = 1;
   images: any = [];
+  status: Status;
 
   constructor(private unsplash: UnsplashService) {
   }
@@ -19,22 +20,56 @@ export class AppComponent implements OnInit {
     this.getImages();
   }
 
-  getImages() {
-    this.unsplash.getImages(this.page).subscribe((res: any) => {
-      if (this.images.length === 0) {
-        this.images = res;
-      } else {
-        this.images.push(...res);
+  getImages(): void {
+    this.status = Status.LOADING;
+
+    this.unsplash.getTopImages(this.page).subscribe(
+      (res: any) => {
+        this.status = Status.FINISHED;
+        if (this.images.length === 0) {
+          this.images = res;
+        } else {
+          this.images.push(...res);
+        }
+      },
+      (_err: any) => {
+        this.status = Status.ERROR;
       }
-    });
+    );
   }
 
-  onScroll() {
+  onScroll(): void {
     this.page++;
     this.getImages()
   }
 
-  trackByFn(index: number, _item: any) {
+  onSearch(searchText: string): void {
+    this.status = Status.LOADING;
+    this.page = 1;
+    this.images = [];
+
+    this.unsplash.searchForImage(this.page, searchText).subscribe(
+      (res: any) => {
+        this.status = Status.FINISHED;
+
+        if (!res) {
+          console.log('no data')
+          return;
+        }
+
+        if (this.images.length === 0) {
+          this.images = res.results;
+        } else {
+          this.images.push(...res.results);
+        }
+      },
+      (_err: any) => {
+        this.status = Status.ERROR;
+      }
+    );
+  }
+
+  trackByFn(index: number, _item: any): number {
     return index;
   }
 }

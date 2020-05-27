@@ -1,1 +1,12 @@
-<p>search works!</p>
+<div class="search-container">
+  <input
+  class="search-input"
+  size="100"
+  type="search"
+  name="searchText"
+  [formControl]="searchText"
+  placeholder="Search Unsplash"
+  >
+
+  <p *ngIf="searchText.dirty"> showing results for: {{ searchText.value }} </p>
+</div>
