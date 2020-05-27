@@ -9,18 +9,32 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   title = 'ng-infinite-image-gallery';
-  images$: Observable<any>
+  page: number = 1;
+  images: any = [];
 
   constructor(private unsplash: UnsplashService) {
   }
 
   ngOnInit(): void {
-    this.unsplash.getImages().subscribe((images) => {
-      this.images$ = images;
-      console.log('images', this.images$)
+    this.getImages();
+  }
+
+  getImages() {
+    this.unsplash.getImages(this.page).subscribe((res: any) => {
+      if (this.images.length === 0) {
+        this.images = res;
+      } else {
+        this.images.push(...res);
+      }
     });
   }
 
-  trackByFn(index: any, item: any) {
+  onScroll() {
+    this.page++;
+    this.getImages()
+  }
+
+  trackByFn(index: number, _item: any) {
     return index;
-  }}
+  }
+}
