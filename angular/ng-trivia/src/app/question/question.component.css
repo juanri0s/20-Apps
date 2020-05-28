@@ -1,0 +1,12 @@
+h3 {
+  font-weight: 300;
+  border-bottom: none;
+}
+
+.question {
+  border: 1px solid red;
+}
+
+.option {
+  border: 1px solid blue;
+}

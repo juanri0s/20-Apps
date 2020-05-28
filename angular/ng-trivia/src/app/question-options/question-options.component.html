@@ -1,0 +1,9 @@
+<div class="option">
+  <p>{{ correct | decode }}</p>
+</div>
+
+<div class="option">
+  <ng-container *ngFor="let inc of incorrect">
+    <p>{{ inc | decode }}</p>
+  </ng-container>
+</div>

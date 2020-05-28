@@ -1,0 +1,16 @@
+<div *ngFor="let question of questions">
+  <div>
+    <app-question
+      [question]="question">
+    </app-question>
+  </div>
+
+  <div>
+    <app-question-options
+      [correct]="question?.correct_answer"
+      [incorrect]="question?.incorrect_answers">
+    </app-question-options>
+  </div>
+</div>
+
+<button type="button"> next question </button>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TriviaResponse } from './trivia.model';
+import { Trivia, TriviaResponse } from './trivia.model';
 import { TriviaService } from './trivia.service';
 
 @Component({
@@ -9,15 +9,16 @@ import { TriviaService } from './trivia.service';
 })
 export class AppComponent implements OnInit {
   title = 'ng-trivia';
+  questions: Trivia[];
 
   constructor(private trivia: TriviaService) {
-
   }
 
   ngOnInit(): void {
     this.trivia.getQuestions().subscribe(
       (res: TriviaResponse) => {
-        console.log(res)
+        this.questions = res.results;
+        console.log(this.questions)
       }
     );
   }

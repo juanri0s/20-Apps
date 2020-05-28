@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { CategorySelectComponent } from './category-select/category-select.component';
 import { QuestionComponent } from './question/question.component';
 import { ScoreTrackerComponent } from './score-tracker/score-tracker.component';
+import { QuestionOptionsComponent } from './question-options/question-options.component';
+import { DecodePipe } from './decode.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CategorySelectComponent,
     ScoreTrackerComponent,
-    QuestionComponent
+    QuestionComponent,
+    QuestionOptionsComponent,
+    DecodePipe
   ],
   imports: [
     BrowserModule,
