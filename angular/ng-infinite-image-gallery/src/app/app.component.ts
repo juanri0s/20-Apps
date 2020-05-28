@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UnsplashService } from './unsplash.service';
 import { Status } from './load.model';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -39,38 +40,39 @@ export class AppComponent implements OnInit {
           this.images.push(...res);
         }
       },
-      (_err: any) => {
+      (_err: HttpErrorResponse) => {
         this.status = Status.ERROR;
       }
     );
   }
 
   onSearch(searchText: string): void {
+    this.page = 1;
     this.isSearch = true;
+    this.images = [];
     this.unsplash.searchText = searchText;
     this.getImagesBySearch();
   }
 
   getImagesBySearch(): void {
     this.status = Status.LOADING;
-    this.images = [];
 
     this.unsplash.getImages(this.page).subscribe(
       (res: any) => {
         this.status = Status.FINISHED;
 
         if (!res) {
-          console.log('no data')
           return;
         }
 
+        console.log(this.images.length)
         if (this.images.length === 0) {
           this.images = res.results;
         } else {
           this.images.push(...res.results);
         }
       },
-      (_err: any) => {
+      (_err: HttpErrorResponse) => {
         this.status = Status.ERROR;
       }
     );

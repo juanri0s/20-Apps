@@ -2,20 +2,11 @@
   (searched)="onSearch($event)">
 </app-search>
 
-<div [ngSwitch]="status">
-  <h1 *ngSwitchCase="'LOADING'"> Loading... </h1>
-  <h1 *ngSwitchCase="'ERROR'"> Error </h1>
-</div>
-
-
-<div *ngIf="status === 'FINISHED'">
+<div>
   <section
     class="grid"
     infiniteScroll
-    [infiniteScrollDistance]="2"
-    [infiniteScrollThrottle]="50"
     (scrolled)="onScroll()">
-
     <app-image class="image"
       *ngFor="let image of images, trackBy: trackByFn()"
       [url]="image?.urls?.small">
@@ -24,5 +15,7 @@
   </section>
 </div>
 
-
-
+<div [ngSwitch]="status">
+  <h1 *ngSwitchCase="'LOADING'"> Loading... </h1>
+  <h1 *ngSwitchCase="'ERROR'"> Error - Rate Limit probably exceeded </h1>
+</div>
