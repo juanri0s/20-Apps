@@ -12,18 +12,25 @@ export class AppComponent implements OnInit {
   page: number = 1;
   images: any = [];
   status: Status;
+  isSearch = true;
 
   constructor(private unsplash: UnsplashService) {
   }
 
   ngOnInit(): void {
-    this.getImages();
+    this.getTopImages();
   }
 
-  getImages(): void {
+  onScroll(): void {
+    this.page++;
+    !this.isSearch ? this.getTopImages() : this.getImagesBySearch();
+  }
+
+  getTopImages(): void {
+    this.isSearch = false;
     this.status = Status.LOADING;
 
-    this.unsplash.getTopImages(this.page).subscribe(
+    this.unsplash.getImages(this.page).subscribe(
       (res: any) => {
         this.status = Status.FINISHED;
         if (this.images.length === 0) {
@@ -38,17 +45,17 @@ export class AppComponent implements OnInit {
     );
   }
 
-  onScroll(): void {
-    this.page++;
-    this.getImages()
+  onSearch(searchText: string): void {
+    this.isSearch = true;
+    this.unsplash.searchText = searchText;
+    this.getImagesBySearch();
   }
 
-  onSearch(searchText: string): void {
+  getImagesBySearch(): void {
     this.status = Status.LOADING;
-    this.page = 1;
     this.images = [];
 
-    this.unsplash.searchForImage(this.page, searchText).subscribe(
+    this.unsplash.getImages(this.page).subscribe(
       (res: any) => {
         this.status = Status.FINISHED;
 

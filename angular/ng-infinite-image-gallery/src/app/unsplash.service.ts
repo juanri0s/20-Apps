@@ -14,18 +14,20 @@ export class UnsplashService {
   PAGE_PARAM: string = 'page='
   SEARCH_PARAM: string = 'search/photos/?query='
 
+  searchText: string = '';
+
   constructor(private http: HttpClient) { }
 
-  getImages(page: number, searchText?: string): Observable<any> {
-    return !searchText ? this.getTopImages(page) : this.searchForImage(page, searchText);
+  getImages(page: number): Observable<any> {
+    return !this.searchText ? this.getTopImages(page) : this.searchForImage(page);
   }
 
   getTopImages(page: number): Observable<any> {
     return this.http.get<any>(`${this.UNSPLASH_API_URL}${this.PHOTOS_PARM}?${this.NUM_ON_PAGE_PARAM}&${this.PAGE_PARAM}${page}&${this.CLIENT_ID_PARAM}${this.TOKEN}`);
   }
 
-  searchForImage(page: number, search: string): Observable<any> {
-    return this.http.get<any>(`${this.UNSPLASH_API_URL}?${this.SEARCH_PARAM}${search}&${this.NUM_ON_PAGE_PARAM}&${this.PAGE_PARAM}${page}&${this.CLIENT_ID_PARAM}${this.TOKEN}`);
+  searchForImage(page: number): Observable<any> {
+    return this.http.get<any>(`${this.UNSPLASH_API_URL}${this.SEARCH_PARAM}${this.searchText}&${this.NUM_ON_PAGE_PARAM}&${this.PAGE_PARAM}${page}&${this.CLIENT_ID_PARAM}${this.TOKEN}`);
   }
 
 }
