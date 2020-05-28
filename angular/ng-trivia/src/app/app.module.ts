@@ -4,10 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CategorySelectComponent } from './category-select/category-select.component';
+import { DecodePipe } from './decode.pipe';
+import { Option } from './option/option.component';
 import { QuestionComponent } from './question/question.component';
 import { ScoreTrackerComponent } from './score-tracker/score-tracker.component';
-import { QuestionOptionsComponent } from './question-options/question-options.component';
-import { DecodePipe } from './decode.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { DecodePipe } from './decode.pipe';
     CategorySelectComponent,
     ScoreTrackerComponent,
     QuestionComponent,
-    QuestionOptionsComponent,
+    Option,
     DecodePipe
   ],
   imports: [

@@ -4,9 +4,6 @@ h3 {
 }
 
 .question {
-  border: 1px solid red;
-}
-
-.option {
-  border: 1px solid blue;
+  text-align: center;
+  border-bottom: 1px solid white;
 }

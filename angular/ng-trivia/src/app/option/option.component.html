@@ -1,0 +1,4 @@
+<div class="option" (click)="onAnswered(answer?.isCorrect)" *ngFor="let answer of answers">
+  <p>{{ answer.answer | decode }}</p>
+</div>
+

@@ -1,16 +1,24 @@
-<div *ngFor="let question of questions">
-  <div>
+<h1>Trivia</h1>
+
+<p class="correct"> Correct: {{ score.correct }} </p>
+<p class="incorrect"> Incorrect: {{ score.incorrect }} </p>
+
+<div *ngFor="let question of questions; let i = index">
+  <div class="trivia-container" *ngIf="i === currentQuestionIndex && i !== questions?.length">
     <app-question
       [question]="question">
     </app-question>
-  </div>
 
-  <div>
-    <app-question-options
-      [correct]="question?.correct_answer"
-      [incorrect]="question?.incorrect_answers">
-    </app-question-options>
+    <div class="answer-container">
+      <app-option
+        class="option"
+        [correct]="question?.correct_answer"
+        [incorrect]="question?.incorrect_answers"
+        (answered)="onAnswered($event)">
+      </app-option>
+    </div>
   </div>
 </div>
 
-<button type="button"> next question </button>
+<p *ngIf="message"> {{ message }} </p>
+<button type="button" *ngIf="message" (click)=reset()> Reset </button>

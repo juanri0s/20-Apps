@@ -11,3 +11,13 @@ export class Trivia {
   question: string;
   type: string;
 }
+
+export class Answer {
+  answer: string;
+  isCorrect: boolean;
+}
+
+export class Score {
+  correct: number;
+  incorrect: number;
+}
